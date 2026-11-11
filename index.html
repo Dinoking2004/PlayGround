@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f2eb" />
+  <title>Everlife — Your story, one year at a time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Everlife home"><span class="brand-mark">e<span>·</span></span><span>everlife</span></a>
+      <div class="top-note"><span class="live-dot"></span> YOUR STORY IS UNFOLDING</div>
+      <button class="icon-button" id="sound-toggle" aria-label="Toggle sound" title="Sound is off">♫</button>
+    </header>
+
+    <main id="setup-screen" class="setup-screen">
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE LIFE, ENTIRELY YOURS</p>
+        <h1>Every year is<br>another <em>chance.</em></h1>
+        <p class="hero-sub">Make choices. Find your people. See where the years take you.</p>
+      </div>
+      <section class="setup-card">
+        <div class="setup-heading"><span class="step">01</span><div><h2>Let's begin at the beginning.</h2><p>Who are you, before the story starts?</p></div></div>
+        <label class="field-label" for="player-name">YOUR NAME</label>
+        <input id="player-name" type="text" maxlength="24" placeholder="A name that feels like you" autocomplete="given-name" />
+        <label class="field-label">CHOOSE A HOMETOWN</label>
+        <div class="city-options" id="city-options">
+          <button class="city-option selected" data-city="Portland"><span class="city-icon">🌲</span><span><b>Portland</b><small>Rainy days, big dreams</small></span><span class="check">✓</span></button>
+          <button class="city-option" data-city="Brooklyn"><span class="city-icon">🏙️</span><span><b>Brooklyn</b><small>Make your own way</small></span><span class="check">✓</span></button>
+          <button class="city-option" data-city="Santa Fe"><span class="city-icon">🌵</span><span><b>Santa Fe</b><small>Room to roam</small></span><span class="check">✓</span></button>
+        </div>
+        <button id="begin-button" class="primary-button">Begin your life <span>→</span></button>
+        <p class="save-note">Your story saves automatically on this device.</p>
+      </section>
+      <div class="hero-decoration"><span>✳</span><span>✳</span><span>✳</span></div>
+    </main>
+
+    <main id="game-screen" class="game-screen hidden">
+      <section class="profile-strip">
+        <div class="avatar" id="avatar">A</div>
+        <div class="identity"><p class="eyebrow" id="life-stage">A LIFE IN PROGRESS</p><h1><span id="display-name">Alex</span><span class="identity-comma">,</span> <span id="display-age">age 0</span></h1><p class="identity-detail"><span id="display-city">Portland</span><span class="detail-dot">·</span><span id="display-role">Just arrived</span></p></div>
+        <div class="year-block"><span>THE YEAR</span><strong id="display-year">2000</strong><small id="year-season">A fresh start</small></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="main-column">
+          <section class="stats-card panel">
+            <div class="section-heading"><div><p class="eyebrow">THE IMPORTANT THINGS</p><h2>Your well-being</h2></div><button id="stats-info" class="quiet-button" title="About your stats">ⓘ</button></div>
+            <div class="stat-list" id="stat-list"></div>
+          </section>
+
+          <section class="choices-section">
+            <div class="section-heading choices-heading"><div><p class="eyebrow">LITTLE THINGS, BIG RIPPLE</p><h2>Make this year count</h2></div><span class="choice-count" id="choice-count">Pick an action</span></div>
+            <div class="action-grid" id="action-grid"></div>
+          </section>
+
+          <section class="year-controls panel">
+            <div><span class="calendar-icon">▦</span><div><b>Ready for what's next?</b><small>Time moves forward one year at a time.</small></div></div>
+            <button id="age-button" class="primary-button age-button">Live another year <span>→</span></button>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="people-card panel">
+            <div class="section-heading"><div><p class="eyebrow">YOUR CORNER OF THE WORLD</p><h2>Your people</h2></div><span class="people-count" id="people-count">0</span></div>
+            <div id="people-list" class="people-list"></div>
+            <button id="meet-button" class="text-action">＋ Meet someone new</button>
+          </section>
+          <section class="story-card panel">
+            <div class="section-heading"><div><p class="eyebrow">THE YEARS SO FAR</p><h2>Your story</h2></div><span class="story-mark">✳</span></div>
+            <div id="story-list" class="story-list"></div>
+          </section>
+          <button id="restart-button" class="restart-link">Start a new life <span>↗</span></button>
+        </aside>
+      </section>
+    </main>
+    <footer><span>EVERLIFE</span><span>One life. A thousand little choices.</span><button id="reset-save">Reset save</button></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop hidden" id="modal-backdrop"><section class="modal" role="dialog" aria-modal="true"><button class="modal-close" id="modal-close" aria-label="Close">×</button><div id="modal-content"></div></section></div>
+  <script src="game.js"></script>
+</body>
+</html>
